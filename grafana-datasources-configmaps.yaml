@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-datasource
+  namespace: cloudplus
+  labels:
+    grafana_datasource: "1"
+    app: prometheus-operator-grafana
+data:
+  datasource.yaml: |-
+    apiVersion: 1
+    datasources:
+    - name: Prometheus
+      type: prometheus
+      url: http://133.133.135.35:31001
+      access: direct
