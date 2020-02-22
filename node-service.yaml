@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    app: node-exporter
+  name: node-exporter-service
+  namespace: ns-monitor
+spec:
+  ports:
+    - port: 9100
+      targetPort: 9100
+  selector:
+    app: node-exporter
+  clusterIP: None
