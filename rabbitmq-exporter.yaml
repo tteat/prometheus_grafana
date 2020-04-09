@@ -1,0 +1,25 @@
+kind: DaemonSet
+apiVersion: apps/v1
+metadata:
+  labels:
+    app: rabbitmq-exporter
+  name: rabbitmq-exporter
+  namespace: default
+spec:
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: rabbitmq-exporter
+  template:
+    metadata:
+      labels:
+        app: rabbitmq-exporter
+    spec:
+      containers:
+        - name: rabbitmq-exporter
+          image: kbudde/rabbitmq-exporter
+      hostNetwork: true
+      hostPID: true
+      tolerations:
+        - effect: NoSchedule
+          operator: Exists

@@ -89,6 +89,32 @@ data:
 
         # metrics_path defaults to '/metrics'
         # scheme defaults to 'http'.
+      - job_name: 'aliyun'
+
+        # metrics_path defaults to '/metrics'
+        # scheme defaults to 'http'.
+
+        static_configs:
+          - targets: ['172.17.104.190:9525']
+
+        # metrics_path defaults to '/metrics'
+        # scheme defaults to 'http'.
+      #- job_name: 'rabbitmq'
+
+        # metrics_path defaults to '/metrics'
+        # scheme defaults to 'http'.
+       # kubernetes_sd_configs:
+        #- role: node
+
+        #relabel_configs:
+        #- action: labelmap
+         # regex: __meta_kubernetes_node_label_(.+)
+       # - source_labels: [__meta_kubernetes_node_address_InternalIP]
+        #  action: replace
+         # target_label: __address__
+          #regex: (.+)
+          #replacement: ${1}:31002
+
       - job_name: 'pushgateway'
         static_configs:
           - targets: ['172.17.104.190:9091']
