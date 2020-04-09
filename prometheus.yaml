@@ -114,7 +114,6 @@ data:
          # target_label: __address__
           #regex: (.+)
           #replacement: ${1}:31002
-
       - job_name: 'pushgateway'
         static_configs:
           - targets: ['172.17.104.190:9091']
